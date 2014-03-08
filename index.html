@@ -27,10 +27,12 @@ function loadXMLDoc() {
         var apiKey = "MDEzYTQ0MzU0";
         var topic = "82471/Taipei";
         var xhr = new XMLHttpRequest();
-        //xhr.open("GET", "http://api.ookaboo.com/api1/lookup_picture?api_key=" + apiKey + "&query_uri=http://ookaboo.com/o/pictures/topic/" + topic);
+        xhr.open("GET", "http://api.ookaboo.com/api1/lookup_picture?api_key=" + apiKey 
+                + "&query_uri=http://ookaboo.com/o/pictures/topic/" + topic);
         xhr.onreadystatechange = logJsonResponse;
         xhr.send();
-}
+    }
+};
 </script>
 </head> <body>
 
