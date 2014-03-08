@@ -24,11 +24,13 @@ function loadXMLDoc() {
     if (!window.XMLHttpRequest) {
         alert('error');  // code for IE6, IE5 not needed, the user should update
     } else {
-        var apiKey = "MDEzYTQ0MzU0";
-        var topic = "82471/Taipei";
+        var apiServer = "http://private-9f552e-lutcomp.apiary.io";
+//        var apiKey = "MDEzYTQ0MzU0";
+//        var topic = "82471/Taipei";
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "http://api.ookaboo.com/api1/lookup_picture?api_key=" + apiKey 
-                + "&query_uri=http://ookaboo.com/o/pictures/topic/" + topic);
+        xhr.open("GET", apiServer + "/lc-v1.0/projects/ghijkl");
+//        xhr.open("GET", "http://api.ookaboo.com/api1/lookup_picture?api_key=" + apiKey 
+//                + "&query_uri=http://ookaboo.com/o/pictures/topic/" + topic);
         xhr.onreadystatechange = logJsonResponse;
         xhr.send();
     }
