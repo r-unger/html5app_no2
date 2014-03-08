@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+var logJsonResponse = function () {
+    // Note: The onreadystatechange event is triggered five times (0-4), one time for each change in readyState.
+    // Values can be: 0: request not initialized, 1: server connection established
+    //      2: request received, 3: processing request, 4: request finished and response is ready
+    if (this.readyState == 4) {
+        document.getElementById("myDiv").innerHTML
+            = 'Status: '+this.status+'<p>Headers: '+JSON.stringify(this.getAllResponseHeaders())+'<p>Body: '+this.responseText;
+    }
+};
+
+var logAnyResponse = function () {
+    if (this.readyState == 4) {
+        document.getElementById("myDiv").innerHTML
+            = 'Status: '+this.status+'<p>Headers: '+this.getAllResponseHeaders()+'<p>Body: '+this.responseText;
+    }
+};
+        
+function loadXMLDoc() {
+    var xmlhttp;
+    if (!window.XMLHttpRequest) {
+        alert('error');  // code for IE6, IE5 not needed, the user should update
+    } else {
+        var apiKey = "MDEzYTQ0MzU0";
+        var topic = "82471/Taipei";
+        var xhr = new XMLHttpRequest();
+        //xhr.open("GET", "http://api.ookaboo.com/api1/lookup_picture?api_key=" + apiKey + "&query_uri=http://ookaboo.com/o/pictures/topic/" + topic);
+        xhr.onreadystatechange = logJsonResponse;
+        xhr.send();
+}
+</script>
+</head> <body>
+
+<div id="myDiv"><h2>Test an AJAX call</h2></div>
+<button type="button" onclick="loadXMLDoc()">Change Content</button>
+
+</body>
+</html> 
